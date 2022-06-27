@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class boys {
+	private static List<String> boys1 = Arrays.asList(
+			"Sam", "Prosper", "John", 
+			"Asaf", "Morgan", "Gio", 
+			"Cameron", "Stephen", "Tyler", "Cam");
+	private static List<String> boys2 = Arrays.asList(
+			"Morgan", "Asaf", "Prosper",
+			"Sam", "Cam", "Gio",
+			"Cameron", "John", "Stephen", "Tyler");
+	private static List<String> boys3 = Arrays.asList(
+			"Sam", "Asaf", "Prosper",
+			"Morgan", "Tyler", "Gio",
+			"Cameron", "Cam", "Stephen", "John");
+	private static List<String> boys4 = Arrays.asList(
+			"Sam", "Asaf", "Cam",
+			"Tyler", "Stephen", "Gio",
+			"Cameron", "Prosper", "Morgan", "John");
+	private static List<String> boys5 = Arrays.asList(
+			"Sam", "Asaf", "Cam",
+			"Gio", "Morgan", "Tyler",
+			"Cameron", "Stephen", "John", "Prosper");
+	private static List<String> boys6 = Arrays.asList(
+			"Sam", "Asaf", "John",
+			"Gio", "Stephen", "Prosper",
+			"Cameron", "Tyler", "Morgan", "Cam");
+	private static List<String> boys7 = Arrays.asList(
+			"Sam", "Tyler", "Gio",
+			"Asaf", "Stephen", "John",
+			"Cameron", "Cam", "Morgan", "Prosper");
+}

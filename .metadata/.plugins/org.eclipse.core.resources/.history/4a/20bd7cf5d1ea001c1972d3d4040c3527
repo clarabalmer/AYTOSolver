@@ -1,0 +1,38 @@
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class ShowGuess {
+	//fields
+	private int week;
+	private Map<String, String> showGuess = new TreeMap<>();
+	private int numCorrect;
+	private int[] certainty = new int[10];
+	private int[] uncertainty = new int[10];
+	//100: no guess. 1: match. 0: no match.
+	
+	
+	
+	public ShowGuess(int week, int numCorrect, List<String> girls, List<String> boys) {
+		this.week = week;
+		this.numCorrect = numCorrect;
+		for (int i = 0; i < girls.size(); i++) {
+			showGuess.put(girls.get(i), boys.get(i));
+		}
+		for (int i = 0; i < 10; i++) {
+			setCertainty(i, 100);
+			setUncertainty(i, 100);
+		}
+	}
+	
+	public void setCertainty(int index, int num) {
+		certainty[index] = num;
+	}
+	public void setUncertainty(int index, int num) {
+		uncertainty[index] = num;
+	}
+	public String getShowGuessMatch(String girl) {
+		return showGuess.get(girl);
+	}
+	
+}

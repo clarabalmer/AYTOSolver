@@ -1,0 +1,11 @@
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class ShowGuess {
+	//fields
+	private int week;
+	private Map<String, String> showGuess = new TreeMap<>();
+	private ArrayList<String> girls = new ArrayList<>();
+	
+}

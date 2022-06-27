@@ -1,0 +1,14 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class AreYouTheOneMain {
+
+	public static void main(String[] args) {
+		List<String> girls = Arrays.asList(
+				"Alyssa", "Camille", "Emma",
+				"Francesca", "Julia", "Kaylen",
+				"Mikala", "Nicole", "Tori", "Victoria");
+		
+	}
+
+}

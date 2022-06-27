@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class ShowGuess {
+	//fields
+	private int week;
+	private Map<String, String> showGuess = new TreeMap<>();
+	private Scanner scnr = new Scanner(System.in);
+	
+	public ShowGuess(int week, List<String> girls, List<String> boys) {
+		this.week = week;
+		for (int i = 0; i < girls.size(); i++) {
+			
+		}
+		
+	}
+	
+}
