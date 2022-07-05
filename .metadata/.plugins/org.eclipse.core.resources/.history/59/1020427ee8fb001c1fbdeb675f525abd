@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+public class ShowData {
+	//fields
+	private ArrayList<WeekData> weekList = new ArrayList<>();
+	private ArrayList<String[]> myGuesses = new ArrayList<>();
+	
+	//constructor
+	ShowData(ArrayList<WeekData> weekList) {
+		this.weekList = weekList;
+	}
+	
+	//methods
+	public void addAGuess(String girl, String boy) {
+		//first, check if guess has already been ruled out.
+		for (int i = 0; i < weekList.size(); i++) {
+			weekList.get(i).getBoys()
+		}
+		
+		System.out.println("This guess reduces possible solutions to approximately " + ". Recommend ");
+	}
+	public void deduce() {
+		
+	}
+	public int findGirlIndex(String girl) {
+		for (int i = 0; i < 10; i++) {
+			if (girl.equalsIgnoreCase(weekList.get(0).getGirlsMaster().get(i))) {
+				return i;
+			}
+		}
+		return -1;
+	}
+}

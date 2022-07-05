@@ -1,0 +1,68 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class AreYouTheOneMain {
+	//girls in alphabetical order, always stays the same
+	private static List<String> girls = Arrays.asList(
+			"Alyssa", "Camille", "Emma",
+			"Francesca", "Julia", "Kaylen",
+			"Mikala", "Nicole", "Tori", "Victoria");
+	//boys in order of which girl they are matched with each week
+	private static List<String> boys1 = Arrays.asList(
+			"Sam", "Prosper", "John", 
+			"Asaf", "Morgan", "Gio", 
+			"Cameron", "Stephen", "Tyler", "Cam");
+	private static List<String> boys2 = Arrays.asList(
+			"Morgan", "Asaf", "Prosper",
+			"Sam", "Cam", "Gio",
+			"Cameron", "John", "Stephen", "Tyler");
+	private static List<String> boys3 = Arrays.asList(
+			"Sam", "Asaf", "Prosper",
+			"Morgan", "Tyler", "Gio",
+			"Cameron", "Cam", "Stephen", "John");
+	private static List<String> boys4 = Arrays.asList(
+			"Sam", "Asaf", "Cam",
+			"Tyler", "Stephen", "Gio",
+			"Cameron", "Prosper", "Morgan", "John");
+	private static List<String> boys5 = Arrays.asList(
+			"Sam", "Asaf", "Cam",
+			"Gio", "Morgan", "Tyler",
+			"Cameron", "Stephen", "John", "Prosper");
+	private static List<String> boys6 = Arrays.asList(
+			"Sam", "Asaf", "John",
+			"Gio", "Stephen", "Prosper",
+			"Cameron", "Tyler", "Morgan", "Cam");
+	private static List<String> boys7 = Arrays.asList(
+			"Sam", "Tyler", "Gio",
+			"Asaf", "Stephen", "John",
+			"Cameron", "Cam", "Morgan", "Prosper");
+	//List of boy lists
+	private static List<List<String>> boyGuesses = Arrays.asList(
+			boys1, boys2, boys3, boys4, boys5, boys6, boys7);
+	//number of correct guesses each week
+	private static int[] correctGuesses = {3, 3, 4, 4, 4, 4, 4};
+	
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+	}
+	public static void printAllWeekGuessMatches() {
+		for (int i = 1; i <= boyGuesses.size(); i++) {
+			System.out.println("In week " + i + ":");
+			System.out.println(getOneWeekGuessMatches(girls, boyGuesses.get(i)) + "\n");
+		}
+	}
+	public static String getOneWeekGuessMatches(List<String> girls, List<String> boys) {
+		String result = "";
+		for (int i = 0; i < girls.size(); i++) {
+			result += (girls.get(i) + "  " + boys.get(i) + "\n");
+		}
+		return result;
+	}
+
+}

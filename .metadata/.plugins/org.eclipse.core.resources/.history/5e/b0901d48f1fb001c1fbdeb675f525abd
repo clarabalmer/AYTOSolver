@@ -1,0 +1,88 @@
+import java.util.ArrayList;
+
+public class ShowData {
+	//fields
+	private ArrayList<WeekData> weekList = new ArrayList<>();
+	private ArrayList<String[]> myGuesses = new ArrayList<>();
+	
+	//constructor
+	ShowData(ArrayList<WeekData> weekList) {
+		this.weekList = weekList;
+	}
+	
+	//methods
+	public void addAGuess(String girl, String boy) {
+		//check if guess has already been ruled out. If not, edit uncertainty array.
+		for (int i = 0; i < weekList.size(); i++) { //in each WeekData
+			if (boy.equalsIgnoreCase(weekList.get(i).getBoys().get(findGirlIndex(girl)))) { //if that match has been guessed, check certainty array
+				switch (weekList.get(i).getCertaintyAtIndex(findGirlIndex(girl))) {
+					case 0:
+						System.out.println("This match has already been ruled out.");
+						break;
+					case 1:
+						System.out.println("This match has already been proven.");
+						break;
+					case 100:
+						weekList.get(i).setUncertaintyAtIndex(findGirlIndex(girl), 1);
+						for (int j = 0; j < weekList.size(); j++) {//check other weeks
+							if (!weekList.get(j).getBoys().get(findGirlIndex(girl)).equalsIgnoreCase(boy)) { //if girl is matched with a different boy
+								weekList.get(j).setUncertaintyAtIndex(findGirlIndex(girl), 0); //edit uncertainty to not a match for her
+								weekList.get(j).setUncertaintyAtIndex(findBoyIndex(boy, j), 0);//and for him
+							}
+						}
+					default:
+						break;
+				}
+			}
+		}
+		System.out.println("This guess reduces possible solutions to approximately " + ". Recommend ");
+	}
+	//deduction methods
+	public void MatchUncertain(String girl, String boy) { //assumes 'girl' and 'boy' are a match
+		for (int i = 0; i < weekList.size(); i++) {
+			if (!weekList.get(i).getBoys().get(findGirlIndex(girl)).equalsIgnoreCase(boy)) { //if girl is matched with a different boy
+				weekList.get(i).setUncertaintyAtIndex(findGirlIndex(girl), 0); //edit uncertainty to not a match for her
+				weekList.get(i).setUncertaintyAtIndex(findBoyIndex(boy, i), 0);//and for him
+			}
+		}
+	}
+	public void noMatchUncertain(String girl, String boy) { //assumes 'girl' and 'boy' are NOT a match
+		for (int i = 0; i < weekList.size(); i++) {
+			if (weekList.get(i).getBoys().get(findGirlIndex(girl)).equalsIgnoreCase(boy)) { //if girl is matched with boy
+				weekList.get(i).setUncertaintyAtIndex(findGirlIndex(girl), 0); //edit uncertainty to not a match
+			}
+		}
+	}
+	public void updateCertainty() {
+		for (int i = 0; i < weekList.size(); i++) {
+			if (weekList.get(i).getTruthBoothResult()) {
+				
+			} else {
+				
+			}
+		}
+	}
+	public void MatchCertain(String girl, String boy) {
+		
+	}
+	public void noMatchCertain(String girl, String boy) {
+		
+	}
+	public int findGirlIndex(String girl) {
+		for (int i = 0; i < 10; i++) {
+			if (girl.equalsIgnoreCase(weekList.get(0).getGirlsMaster().get(i))) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	//finds index of boy in guess list, not master list
+	public int findBoyIndex(String boy, int weekIndex) {
+		for (int i = 0; i < 10; i++) {
+			if (boy.equalsIgnoreCase(weekList.get(weekIndex).getBoys().get(i))) {
+				return i;
+			}
+		}
+		return -1;
+	}
+}

@@ -1,0 +1,11 @@
+import java.util.ArrayList;
+
+public class ShowData {
+	//fields
+	private ArrayList<WeekData> weekList = new ArrayList<>();
+	
+	//constructor
+	ShowData(ArrayList<WeekData> weekList) {
+		
+	}
+}

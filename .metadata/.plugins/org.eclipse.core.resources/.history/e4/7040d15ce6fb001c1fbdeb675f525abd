@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class ShowData {
+	//fields
+	private ArrayList<WeekData> weekList = new ArrayList<>();
+	private ArrayList<String[]> myGuesses = new ArrayList<>();
+	
+	//constructor
+	ShowData(ArrayList<WeekData> weekList) {
+		this.weekList = weekList;
+	}
+	
+	//methods
+	public void addAGuess(String girl, String boy) {
+		
+		
+		System.out.println("This guess reduces possible solutions to approximately " + ". Recommend ");
+	}
+	public void deduce() {
+		
+	}
+	
+}

@@ -1,0 +1,71 @@
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class WeekData {
+	//fields
+	private int weekNumber;
+	private Map<String, String> showGuess = new TreeMap<>();
+	private Map<String, String> truthBooth = new TreeMap<>();
+	private boolean truthBoothResult;
+	private int numCorrect;
+	private int[] certainty = new int[10];
+	private int[] uncertainty = new int[10];
+	//100: no guess yet. 1: match. 0: not a match.
+		
+		
+	//constructor:
+	WeekData(int weekNumber, int numCorrect, List<String> girlsMaster, List<String> boys, String truthBoothGirl, String truthBoothBoy, boolean truthBoothResult) {
+		this.weekNumber = weekNumber;
+		this.numCorrect = numCorrect;
+		for (int i = 0; i < girlsMaster.size(); i++) {
+			showGuess.put(girlsMaster.get(i), boys.get(i));
+		}
+		truthBooth.put(truthBoothGirl, truthBoothBoy);
+		this.truthBoothResult = truthBoothResult;
+		for (int i = 0; i < 10; i++) {
+			setCertaintyAtIndex(i, 100);
+			setUncertaintyAtIndex(i, 100);
+		}
+	}
+		
+	//methods:
+	public int numOfNoGuess(int[] certainty) {
+		int sum = 0;
+		for (int i = 0; i < certainty.length; i++) {
+			sum += certainty[i];
+		}
+		return sum/100;
+	}
+	public int numOfMatch(int[] certainty) {
+		int sum = 0;
+		for (int i = 0; i < certainty.length; i++) {
+			sum += certainty[i];
+		}
+		return sum%100;
+	}
+	public int numOfNoMatch(int[] certainty) {
+		int sum = 0;
+		for (int i = 0; i < certainty.length; i++) {
+			sum += certainty[i];
+		}
+		return 10 - (numOfNoGuess(certainty) + numOfMatch(certainty));
+	}
+
+	//getters/setters
+	public void setCertaintyAtIndex(int index, int num) {
+		certainty[index] = num;
+	}
+	public int getCertaintyAtIndex(int index) {
+		return certainty[index];
+	}
+	public void setUncertaintyAtIndex(int index, int num) {
+		uncertainty[index] = num;
+	}
+	public int getUncertaintyAtIndex(int index) {
+		return uncertainty[index];
+	}
+	public String getShowGuessMatch(String girl) {
+		return showGuess.get(girl);
+	}
+}
